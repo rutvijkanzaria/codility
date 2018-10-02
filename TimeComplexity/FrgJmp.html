@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frog Jump</title>
+</head>
+<body>
+	<script>
+		function solution(X, Y, D) {
+			if (X === Y) {
+				return 0;
+			}
+			var totalJump = (Y-X)/D;
+			return Math.ceil(totalJump);
+		}
+	</script>
+</body>
+</html>

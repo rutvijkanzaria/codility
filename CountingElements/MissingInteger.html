@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Missing Integer</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function solution(A) {
+			var obj = {};
+			for (var i = 0; i < A.length; i++) {
+				obj[i+1] = false;
+			}
+			A.forEach(function(val, key) {
+				if (obj[val] === false) {
+					obj[val] = true;
+				}
+			});
+
+			var missingKey = 0;
+			Object.keys(obj).every(function(val, index) {
+				if (obj[val]) {
+					if (index === A.length - 1) {
+						missingKey = A.length + 1;
+					}
+					return true;
+				}
+				missingKey = +val;
+				return false;
+			});
+
+			if (!missingKey) {
+				return 1;
+			}
+
+			return missingKey;
+		}
+	</script>
+</body>
+</html>

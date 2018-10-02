@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Max Counters</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function solution(N, A) {
+			var arr = new Array(N);
+			arr.fill(0);
+			var maxValue = 0;
+			var totalMaxValue = 0
+			A.forEach(function(value, index) {
+				var key = value - 1;
+
+				if (value > arr.length) {
+					totalMaxValue = maxValue;
+				} else if (totalMaxValue) {
+					if (arr[key] < totalMaxValue) {
+						arr[key] = totalMaxValue + 1;
+					} else {
+						arr[key] ++;
+					}
+				} else {
+					arr[key]++;
+				}
+
+				if (maxValue < arr[key]) {
+					maxValue = arr[key];
+				}
+			});
+
+			var newArr = arr.map(function(value, index) {
+				if (totalMaxValue && value < totalMaxValue) {
+					return totalMaxValue;
+				}
+				return value;
+			});
+			return newArr;
+		}
+	</script>
+</body>
+</html>

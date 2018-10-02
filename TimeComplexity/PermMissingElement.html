@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Missing Element in Array</title>
+</head>
+<body>
+	<script>
+		function solution(A) {
+			if (!A.length) {
+				return 1;
+			}
+			var max = 0;
+			var sum = 0;
+			A.map(function(n) {
+				if (n > max) {
+					max = n;
+				}
+				sum += n;
+			});
+			var total = (max*(max+1))/2;
+			var missingElement = total - sum;
+			if (!missingElement) {
+				missingElement = max+1;
+			}
+			return missingElement;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frog River One</title>
+</head>
+<body>
+	<script>
+		function solution(X, A) {
+			var map = {};
+			var arr = [];
+			var totalTimeTake;
+			A.every(function(value, index) {
+				if(value && !map[value] && value <= X) {
+					arr.push(value);
+					map[value] = true;
+				}
+				if(arr.length === X && !totalTimeTake) {
+					totalTimeTake = index;
+					return false;
+				}
+				return true;
+			});
+			if (!totalTimeTake && totalTimeTake !== 0) {
+				return -1;
+			}
+			return totalTimeTake;
+		}
+	</script>
+</body>
+</html>

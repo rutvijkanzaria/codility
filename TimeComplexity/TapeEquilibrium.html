@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tape Equilibrium</title>
+</head>
+<body>
+	<script>
+		function solution(A) {
+			var leftSum = [];
+			var p = 0;
+			var totalSum = 0;
+			A.forEach(function(n, i) {
+				totalSum += n;
+				if (i === 0) {
+					leftSum.push(n);
+				} else if (i !== A.length - 1) {
+					leftSum.push(leftSum[p] + n);
+					p++; 
+				}
+			});
+			var minDiff = 0;
+			leftSum.forEach(function(ls, i) {
+				var rightDiff = totalSum - ls;
+				var diff = Math.abs(ls - rightDiff);
+				if (i === 0 || diff < minDiff) {
+					minDiff = diff
+				}
+			});
+
+			return minDiff;
+		}
+	</script>
+</body>
+</html>

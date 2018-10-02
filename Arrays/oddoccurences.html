@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Odd Occurences</title>
+</head>
+<body>
+	<script>
+		function solution(A) {
+			var xor = A[0];
+			A.map(function(n, i) {
+				if (i !== 0) {
+					xor = n ^ xor;
+				}
+			});
+			return xor;
+		}
+	</script>
+</body>
+</html>

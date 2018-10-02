@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cyclic Rotation</title>
+</head>
+<body>
+	<script>
+		function solution(A, K) {
+			if (A.length === 1 || !A.length) {
+				return A;
+			}
+			function setK() {
+				if (K > A.length) {
+					K = K - A.length;
+					if (K > A.length) {
+						setK();
+					}
+				}
+			}
+			setK();
+			var newArray = [];
+			A.map(function(n, index) {
+				if ( (index + K) <= (A.length - 1) ) {
+					newArray[index + K] = n;
+				} else {
+					newArray[(index + K) - A.length] = n;
+				}
+			});
+
+			return newArray;
+		}
+	</script>
+</body>
+</html>
